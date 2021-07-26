@@ -46,4 +46,16 @@ public class CustomExceptionHandler {
         DefaultError error = new DefaultError(status,message,timeStamp);
         return ResponseEntity.status(status).body(error);
     }
+
+    @ExceptionHandler(CategoriaUsuarioException.class)
+    public ResponseEntity<DefaultError> categoriaUsuarioError(
+            CategoriaUsuarioException e,
+            HttpServletResponse resp
+    ) {
+        Integer status = HttpStatus.NOT_FOUND.value();
+        String message = e.getMessage();
+        Long timeStamp = Instant.now().getEpochSecond();
+        DefaultError error = new DefaultError(status,message,timeStamp);
+        return ResponseEntity.status(status).body(error);
+    }
 }
