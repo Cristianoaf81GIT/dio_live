@@ -58,4 +58,17 @@ public class CustomExceptionHandler {
         DefaultError error = new DefaultError(status,message,timeStamp);
         return ResponseEntity.status(status).body(error);
     }
+   
+    @ExceptionHandler(EmpresaException.class)
+    public ResponseEntity<DefaultError> EmpresaError(
+                    EmpresaException e, 
+                    HttpServletResponse response
+    ) {
+        Integer status = HttpStatus.NOT_FOUND.value();
+        String message = e.getMessage();
+        Long timeStamp = Instant.now().getEpochSecond();
+        DefaultError error = new DefaultError(status,message,timeStamp);
+        return ResponseEntity.status(status).body(error);
+    }
+
 }
