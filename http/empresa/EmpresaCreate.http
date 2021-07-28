@@ -1,0 +1,14 @@
+POST http://localhost:8081/empresas HTTP/1.1
+Host: localhost:8081
+Content-Type: application/json
+Content-Length: 235
+
+{
+   "descricao": "laranjal sucos 2",
+   "cnpj": "99576458000150",
+   "endereco": "Avenida das almas desoladas 32",
+   "bairro": "sao joao do boatao",
+   "cidade": "rio claro",
+   "estado": "SP",
+   "telefone": "129773656214"
+}

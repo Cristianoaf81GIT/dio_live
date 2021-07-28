@@ -71,4 +71,16 @@ public class CustomExceptionHandler {
         return ResponseEntity.status(status).body(error);
     }
 
+    @ExceptionHandler(NivelAcessoException.class)
+    public ResponseEntity<DefaultError> nivelAcessoError(
+                    EmpresaException e, 
+                    HttpServletResponse response
+    ) {
+        Integer status = HttpStatus.NOT_FOUND.value();
+        String message = e.getMessage();
+        Long timeStamp = Instant.now().getEpochSecond();
+        DefaultError error = new DefaultError(status,message,timeStamp);
+        return ResponseEntity.status(status).body(error);
+    }
+
 }

@@ -1,0 +1,8 @@
+PUT http://localhost:8081/niveisacesso/6 HTTP/1.1
+Host: localhost:8081
+Content-Length: 38
+Content-Type: application/json
+
+{
+    "descricao": "Administrador"
+}
