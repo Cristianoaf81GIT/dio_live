@@ -37,7 +37,7 @@ public class CustomExceptionHandler {
 
     @ExceptionHandler(TipoDataException.class)
     public ResponseEntity<DefaultError> TipoDataError(
-            OcorrenciaException e,
+            TipoDataException e,
             HttpServletResponse resp
     ) {
         Integer status = HttpStatus.NOT_FOUND.value();
@@ -73,7 +73,7 @@ public class CustomExceptionHandler {
 
     @ExceptionHandler(NivelAcessoException.class)
     public ResponseEntity<DefaultError> nivelAcessoError(
-                    EmpresaException e, 
+                    NivelAcessoException e, 
                     HttpServletResponse response
     ) {
         Integer status = HttpStatus.NOT_FOUND.value();
@@ -83,4 +83,15 @@ public class CustomExceptionHandler {
         return ResponseEntity.status(status).body(error);
     }
 
+    @ExceptionHandler(LocalidadeException.class)
+    public ResponseEntity<DefaultError> LocalidadeError(
+                    LocalidadeException e, 
+                    HttpServletResponse response
+    ) {
+        Integer status = HttpStatus.NOT_FOUND.value();
+        String message = e.getMessage();
+        Long timeStamp = Instant.now().getEpochSecond();
+        DefaultError error = new DefaultError(status,message,timeStamp);
+        return ResponseEntity.status(status).body(error);
+    }
 }

@@ -1,0 +1,9 @@
+PUT http://localhost:8081/localidade/12 HTTP/1.1
+Host: localhost:8081
+Content-Length: 67
+Content-Type: application/json
+
+{
+    "nivelAcessoId": 6,
+    "descricao": "acesso irrestrito"
+}

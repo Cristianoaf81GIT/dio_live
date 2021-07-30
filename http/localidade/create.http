@@ -1,0 +1,9 @@
+POST http://localhost:8081/localidade HTTP/1.1
+Host: localhost:8081
+Content-Length: 49
+Content-Type: application/json
+
+{
+ "nivelAcessoId": 6,
+ "descricao": "TOTAL"
+}
